@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    overflow: hidden;
+}
+
+/* Neon lines background animation */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, rgba(255, 0, 255, 0.2) 10%, rgba(0, 255, 255, 0.2) 90%);
+    background-size: 400% 400%;
+    animation: bgAnimation 8s ease-in-out infinite;
+}
+
+@keyframes bgAnimation {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/* Loader styles */
+.loader {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.loader::before, .loader::after {
+    content: '';
+    position: absolute;
+    border: 10px solid transparent;
+    border-top: 10px solid #0ff;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    animation: rotate 1.5s linear infinite;
+}
+
+.loader::after {
+    border-top: 10px solid #f0f;
+    border-left: 10px solid #0f0;
+    animation-duration: 2.5s;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.glow {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: 50%;
+    top: -10px;
+    left: -10px;
+    filter: blur(10px);
+    animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
